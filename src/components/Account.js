@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Transactions from './Transactions'
-import Search from './Search'
+import CategorySelector from './CategorySelector'
 
 // The data you retrieve from the Rails API will be structured as follows:
 // [
@@ -33,12 +33,12 @@ class Account extends Component {
 
     return (
       <div>
-        <Search searchTerm={""} handleChange={"...your code here"} />
+        <CategorySelector transactions={[]} activeCategory={""} handleChange={"...your code here"} />
         <p className="App-intro">
           Here are your most recent transactions.
         </p>
 
-        <Transactions transactions={[]} searchTerm={""} />
+        <Transactions transactions={[]} activeCategory={""} />
       </div>
     )
   }
