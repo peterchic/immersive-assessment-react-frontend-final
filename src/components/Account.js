@@ -28,7 +28,6 @@ class Account extends Component {
     super();
     this.state = {
       transactions: [],
-      categories: [],
       activeCategory: "All"
     }
   }
@@ -37,13 +36,8 @@ class Account extends Component {
     fetch('http://localhost:3001/transactions')
     .then((response) => {
        response.json().then((data) => {
-
-         let categories = data.map(tr => tr.category)
-           .filter((cat, i, all) => all.indexOf(cat) === i) // uniq it
-
          this.setState({
-           transactions: data,
-           categories
+           transactions: data
          })
        })
     })
@@ -57,11 +51,11 @@ class Account extends Component {
   }
 
   render() {
-    let { transactions, categories, activeCategory } = this.state
+    let { transactions, activeCategory } = this.state
 
     return (
       <div>
-        <CategorySelector categories={categories} activeCategory={activeCategory} handleChange={this.handleChange.bind(this)} />
+        <CategorySelector transactions={transactions} activeCategory={activeCategory} handleChange={this.handleChange.bind(this)} />
         <p className="App-intro">
           Here are your most recent transactions.
         </p>

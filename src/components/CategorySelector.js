@@ -1,6 +1,10 @@
 import React from 'react'
 
-const CategorySelector = ({activeCategory, categories, handleChange}) => {
+const CategorySelector = ({transactions, activeCategory, handleChange}) => {
+  let categories = transactions
+    .map( transaction => transaction.category )
+    .filter( (cat, i, all) => all.indexOf(cat) === i) // unique list of categories
+
   let categoryButtons = categories.map((category, i) => {
     return (
       <div className="category-button" key={i}>
