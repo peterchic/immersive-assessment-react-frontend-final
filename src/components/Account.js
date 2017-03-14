@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Transactions from './Transactions'
-import Search from './Search'
+import CategorySelector from './CategorySelector'
 
 // The data you retrieve from the Rails API will be structured as follows:
 // [
@@ -24,21 +24,49 @@ import Search from './Search'
 
 class Account extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      transactions: [],
+      categories: [],
+      activeCategory: "All"
+    }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/transactions')
+    .then((response) => {
+       response.json().then((data) => {
+
+         let categories = data.map(tr => tr.category)
+           .filter((cat, i, all) => all.indexOf(cat) === i) // uniq it
+
+         this.setState({
+           transactions: data,
+           categories
+         })
+       })
+    })
+  }
+
 
   handleChange(event) {
-    //... your code here
+    this.setState({
+      activeCategory: event.target.value
+    })
   }
 
   render() {
+    let { transactions, categories, activeCategory } = this.state
 
     return (
       <div>
-        <Search searchTerm={""} handleChange={"...your code here"} />
+        <CategorySelector categories={categories} activeCategory={activeCategory} handleChange={this.handleChange.bind(this)} />
         <p className="App-intro">
           Here are your most recent transactions.
         </p>
 
-        <Transactions transactions={[]} searchTerm={""} />
+        <Transactions transactions={transactions} activeCategory={activeCategory} />
       </div>
     )
   }

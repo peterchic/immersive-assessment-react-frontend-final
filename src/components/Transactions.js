@@ -1,9 +1,21 @@
 import React, { Component } from 'react'
+import Transaction from './Transaction'
 
 
 class Transactions extends Component {
 
   render() {
+    let transactions;
+
+    if (this.props.activeCategory === "All") {
+      transactions = this.props.transactions
+    } else {
+      transactions = this.props.transactions
+        .filter(transaction => transaction.category === this.props.activeCategory)
+    }
+
+    transactions = transactions.map( transaction => <Transaction transaction={transaction}/>)
+
 
     return(
     <table>
@@ -14,7 +26,7 @@ class Transactions extends Component {
           <th>Category</th>
           <th>Amount</th>
         </tr>
-        {"...your code here "}
+        {transactions}
       </tbody>
     </table>
     )
