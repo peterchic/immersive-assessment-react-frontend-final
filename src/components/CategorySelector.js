@@ -15,7 +15,7 @@ const CategorySelector = ({transactions, activeCategory, handleChange}) => {
   })
 
   return (
-    <div>
+    <div className="category-selector">
       <div className="category-button">
         <input onChange={(ev) => handleChange(ev)} type="radio" name="category" value="All" id="All" checked={activeCategory === "All"}/>
         <label htmlFor="All">All</label>
