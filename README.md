@@ -1,4 +1,4 @@
-# React Immersive Assessment
+# React Immersive Final Assessment
 
 ## Instructions
 
@@ -6,10 +6,10 @@ For this project, you’ll be building out a React application that displays a l
 
 **Please implement the following user stories:**
 - As a user, you should be able to see a table of transactions.
-- As a user, you should be able to enter text into an input field and filter the list of transactions by either description or category.
+- As a user, you should be able to filter your transactions by category with radio buttons.
 
 
-![example project](https://s3-us-west-2.amazonaws.com/curriculum-content/web-development/react/react-assessment-example.gif)
+![example project](https://s3-us-west-2.amazonaws.com/curriculum-content/web-development/react/category-selection.gif)
 
 We’ve provided some starter code you can use to guide you, but feel free to create or remove components as you see fit.
 
