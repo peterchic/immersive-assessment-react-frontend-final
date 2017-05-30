@@ -1,16 +1,51 @@
 import React from 'react'
 
+// We have provided this Array of categories for you,
+// in a real application you might retrieve this data from
+// your backend
+
+const categories = [
+  "All",
+  "Entertainment",
+  "Income",
+  "Food",
+  "Fashion",
+  "Gift",
+  "ATM",
+  "Transportation",
+  "Housing",
+  "Misery"
+]
+
 const CategorySelector = (props) => {
 
-  let categories = props.transactions
-    .map( transaction => transaction.category )
-    .filter( (cat, i, all) => all.indexOf(cat) === i) // unique list of categories
+  const categoryFields = categories.map( category => {
+    return (
+      <div className="field">
+        <div className="ui segment mini">
+          <div className="ui radio checkbox">
+
+            <input
+              type="radio"
+              name="category"
+              id={ category }
+              checked={ props.activeCategory === category }
+            />
+            <label>{ category }</label>
+
+          </div>
+        </div>
+      </div>
+    )
+  })
+
 
   return (
-    <div>
-      <div className="category-button">
-        <input type="radio" name="category" value="All" id="All" checked={props.activeCategory === "All"}/>
-        <label htmlFor="All">All</label>
+    <div className="sixteen wide column">
+      <div className="ui form">
+        <div className="inline fields">
+          { categoryFields }
+        </div>
       </div>
     </div>
   )
