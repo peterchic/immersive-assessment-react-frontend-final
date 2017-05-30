@@ -1,15 +1,26 @@
-# React Immersive Assessment
+# React Immersive Code Challenge Final
 
 ## Instructions
 
-For this project, you’ll be building out a React application that displays a list of your recent bank transactions. We’ve provided a Rails API that returns a JSON payload of transactions you should use to hydrate your app with data. Follow the instructions in [this repo](https://github.com/learn-co-curriculum/immersive-assessment-react-backend) to get that set up.
+For this project, you’ll be building out a React application that displays a list of your recent bank transactions.
+
+Part of what this code challenge is testing is your ability to follow given instructions. While you will definitely have a significant amount of freedom in how you implement the features, be sure to carefully read the directions for setting up the application.
+
+When you clone down this project, the component `<AccountContainer />` will have an initial default state.  Use this data to get the functionality of the app working.  Once that is complete, you can replace that initial state with data you fetch from [this provided API endpoint](https://boiling-brook-94902.herokuapp.com/transactions).
+
+
+## Deliverables
 
 **Please implement the following user stories:**
 - As a user, you should be able to see a table of transactions.
-- As a user, you should be able to enter text into an input field and filter the list of transactions by either description or category.
+- As a user, you should be able select a radio button that toggles the active category.
+- You should only see transactions that match the active category or all transactions if "All" is selected
 
 
 ![example project](https://s3-us-west-2.amazonaws.com/curriculum-content/web-development/react/react-assessment-example.gif)
+
+Use the above gif as an example of how the app should function.
+
 
 We’ve provided some starter code you can use to guide you, but feel free to create or remove components as you see fit.
 
