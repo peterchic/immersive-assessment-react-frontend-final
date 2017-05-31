@@ -50,15 +50,18 @@ class AccountContainer extends Component {
     const displayedTransactions = this.state.transactions
 
     return (
-      <div className="ui grid fluid container">
+      <div className="ui grid container">
+
         <CategorySelector
           transactions={ displayedTransactions }
           activeCategory={ this.state.activeCategory }
           handleChange={ "...your code here" }
         />
+
         <TransactionsList
           transactions={ displayedTransactions }
         />
+
       </div>
     )
   }
