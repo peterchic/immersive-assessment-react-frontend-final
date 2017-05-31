@@ -1,4 +1,5 @@
 import React from 'react'
+import CategoryField from './CategoryField'
 
 // We have provided this Array of categories for you,
 // in a real application you might retrieve this data from
@@ -19,25 +20,21 @@ const categories = [
 
 const CategorySelector = (props) => {
 
-  const categoryFields = categories.map( category => {
-    return (
-      <div className="field">
-        <div className="ui segment mini">
-          <div className="ui radio checkbox">
+  const categoryFields = categories.map(
+    (category, i) => {
 
-            <input
-              type="radio"
-              name="category"
-              id={ category }
-              checked={ props.activeCategory === category }
-            />
-            <label>{ category }</label>
+      const checked = category === props.activeCategory
 
-          </div>
-        </div>
-      </div>
-    )
-  })
+      return (
+        <CategoryField
+          key={ i }
+          checked={ checked }
+          category={ category }
+          handleChange={ props.handleChange }
+        />
+      )
+    }
+  )
 
 
   return (
