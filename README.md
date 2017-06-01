@@ -21,7 +21,6 @@ When you clone down this project, the component `<AccountContainer />` will have
 
 Use the above gif as an example of how the app should function.
 
-
 We’ve provided some starter code you can use to guide you, but feel free to create or remove components as you see fit.
 
 ## Setup
