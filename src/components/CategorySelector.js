@@ -1,16 +1,31 @@
 import React from 'react'
+import CategoryField from './CategoryField'
+import categories from '../categories'
 
 const CategorySelector = (props) => {
 
-  let categories = props.transactions
-    .map( transaction => transaction.category )
-    .filter( (cat, i, all) => all.indexOf(cat) === i) // unique list of categories
+  const categoryFields = categories.map(
+    (category, i) => {
+
+      const checked = category === props.activeCategory
+
+      return (
+        <CategoryField
+          key={ i }
+          checked={ checked }
+          category={ category }
+        />
+      )
+    }
+  )
+
 
   return (
-    <div>
-      <div className="category-button">
-        <input type="radio" name="category" value="All" id="All" checked={props.activeCategory === "All"}/>
-        <label htmlFor="All">All</label>
+    <div className="sixteen wide column">
+      <div className="ui form">
+        <div className="inline fields">
+          { categoryFields }
+        </div>
       </div>
     </div>
   )
