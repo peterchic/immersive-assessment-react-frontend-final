@@ -3,16 +3,16 @@ import Transaction from './Transaction'
 
 const TransactionsList = (props) => {
 
-  console.log('ok', props.transactions.activeCategory);
+  console.log('ok', props.activeCategory);
   // Attempt 1
-  // const filteredTransactions = props.transactions.filter((transaction) => {
-  //   return transaction.category === props.transactions.activeCategory
-  // })
+  const filteredTransactions = props.transactions.filter((transaction) => {
+    return transaction.category === props.activeCategory
+  })
 
   // Attempt 2
-  const filteredTransactions = props.transactions.filter((transaction) => {
-    return transaction.category.includes(props.transactions.activeCategory)
-  })
+  // const filteredTransactions = props.transactions.filter((transaction) => {
+  //   return transaction.category.includes(props.activeCategory)
+  // })
 
   const displayedTransactions = props.transactions.map((transaction) => {
     return <Transaction transaction={transaction} />

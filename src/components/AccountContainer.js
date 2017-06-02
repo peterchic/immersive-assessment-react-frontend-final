@@ -49,7 +49,7 @@ class AccountContainer extends Component {
 
         <TransactionsList
           transactions={ displayedTransactions }
-          // filtered={this.filtered.bind(this)}
+          active={this.state.activeCategory}
         />
 
       </div>
